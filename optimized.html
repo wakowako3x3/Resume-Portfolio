@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First HTML Page</title>
+    <style>
+        body, html {
+            margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif;
+            display: flex; justify-content: center; align-items: flex-start; background-color: #f4f4f4; overflow-x: hidden;
+        }
+        .a4-container {
+            width: 80vw; max-width: 210mm; padding: 20mm; background-color: white; border: 1px solid #ddd;
+            display: flex; flex-direction: column; align-items: center; text-align: center; min-height: 80vh; max-height: 297mm; overflow: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px;
+        }
+        .center { display: block; margin: auto; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        hr { border: 2px solid #000; width: 100%; margin: 20px 0; }
+        ul { text-align: left; list-style-position: inside; padding-left: 20px; }
+        .navbar { display: flex; justify-content: center; gap: 15px; margin-bottom: 20px; padding: 10px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .navbar a { color: #007bff; text-decoration: none; font-size: 14px; padding: 8px 16px; background-color: #e6f7ff; border-radius: 4px; transition: background-color 0.3s, transform 0.3s; }
+        .navbar a:hover { background-color: #b3e0ff; transform: translateY(-2px); }
+        h3, h5 { margin: 25px 0; color: #34495e; }
+        .exercise-container { border: 1px solid #e0e0e0; padding: 20px; margin: 15px 0; border-radius: 8px; background-color: #f8f8f8; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); text-align: left; }
+        .exercise-container button { padding: 10px 15px; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; margin: 5px; transition: background-color 0.3s; }
+        .exercise-container button:hover { background-color: #2980b9; }
+        .hidden { display: none; }
+        footer { margin-top: 20px; text-align: center; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="a4-container">
+        <div class="navbar">
+            <a href="#aboutme">ABOUT ME</a>
+            <a href="#workexperience">WORK EXPERIENCE</a>
+            <a href="#education">EDUCATIONAL ATTAINMENT</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#exercises">EXERCISES</a>
+            <a href="#projects">PROJECTS</a>
+        </div>
+        <img class="center" width="144" height="144" src="zije.jpg" alt="Profile Picture">
+        <h1>ZIJE DAVE A. DURAGOS</h1>
+        <p>ADDRESS: Cotcot, Liloan, Cebu</p>
+        <p>NUMBER: 09771450975</p>
+        <p>EMAIL: <a href="mailto:zduragos@gmail.com">zduragos@gmail.com</a></p>
+        <hr>
+        <h3 id="aboutme">ABOUT ME</h3>
+        <p>I am a fast and adaptable learner with seven years of experience in coding, driven by a passion for innovation and problem-solving. My dedication to programming was recognized when I received the "Outstanding Performance Award in Programming" during my Senior High School years.</p>
+        <hr>
+        <h3 id="workexperience">WORK EXPERIENCE</h3>
+        <ul>
+            <li>Worked at Google for 1 year</li>
+            <li>Worked at Riot Games for 5 years</li>
+            <li>Worked at Microsoft for 1 year</li>
+        </ul>
+        <hr>
+        <h3 id="education">EDUCATIONAL ATTAINMENT</h3>
+        <ul>
+            <li>Graduated at Banilad Elementary School as a Top 10 student</li>
+            <li>Studied at University in Southern Philippines Foundation in Junior High School</li>
+            <li>Graduated Senior High School with an average of 94.4% at Saint John Bosco Cotcot National High School</li>
+            <li>Studied BSIT at Cebu Technological University Consolacion campus</li>
+        </ul>
+        <hr>
+        <h3 id="skills">SKILLS</h3>
+        <ul class="skills-list">
+            <li>⚡Fast Learner <div class="progress-container"><div class="progress-bar" data-width="80"></div></div></li>
+            <li>🧩Problem Solving Skills <div class="progress-container"><div class="progress-bar" data-width="90"></div></div></li>
+            <li>⚙️Efficient <div class="progress-container"><div class="progress-bar" data-width="86"></div></div></li>
+            <li>🧐Analytical <div class="progress-container"><div class="progress-bar" data-width="90"></div></div></li>
+            <li>🔥Persistent <div class="progress-container"><div class="progress-bar" data-width="100"></div></div></li>
+        </ul>
+        <style>
+            #skills { font-size: 28px; text-align: center; margin-bottom: 20px; color: #333; font-weight: bold; letter-spacing: 2px; }
+            .skills-list { list-style: none; padding: 0; width: 60%; margin: auto; }
+            .skills-list li { font-size: 18px; font-weight: bold; margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
+            .progress-container { width: 100%; height: 12px; background: #e0e0e0; border-radius: 8px; overflow: hidden; }
+            .progress-bar { height: 100%; border-radius: 8px; background: linear-gradient(90deg, #ff8c00, #ff2e63); width: 0%; transition: width 2s ease-in-out; }
+        </style>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.querySelectorAll(".progress-bar").forEach(bar => {
+                    let width = bar.getAttribute("data-width");
+                    bar.style.width = width + "%";
+                });
+            });
+        </script>
+        <hr>
+        <h3 id="exercises">EXERCISES</h3>
+        <div class="exercise-container">
+            <h5>Variables and Data Types</h5>
+            <button onclick="runExample1()">Run Example</button>
+            <button onclick="toggleVisibility('code1')">Show/Hide Code</button>
+            <pre id="code1" class="hidden">function runExample1() { let output = ""; let a = 10, b = 5; output += `Addition: ${a + b}, Multiplication: ${a * b}\n`; output += `Is a greater than b? ${a > b}\n`; output += `Logical AND (true && false): ${true && false}\n`; let c = 20; c += 10; output += `Assignment (c += 10): ${c}\n`; let isEven = (a % 2 === 0) ? "Even" : "Odd"; output += `Ternary Operator: ${isEven}\n`; let result = 10 + 5 * 2; output += `Operator Precedence (10 + 5 * 2): ${result}\n`; let expression = (10 + 5); let statement = "let x = 10;"; output += `Expression result: ${expression}\nStatement example: ${statement}\n`; alert(output); }</pre>
+        </div>
+        <script>
+            function runExample1() {
+                let output = "";
+                let a = 10, b = 5;
+                output += `Addition: ${a + b}, Multiplication: ${a * b}\n`;
+                output += `Is a greater than b? ${a > b}\n`;
+                output += `Logical AND (true && false): ${true && false}\n`;
+                let c = 20; c += 10;
+                output += `Assignment (c += 10): ${c}\n`;
+                let isEven = (a % 2 === 0) ? "Even" : "Odd";
+                output += `Ternary Operator: ${isEven}\n`;
+                let result = 10 + 5 * 2;
+                output += `Operator Precedence (10 + 5 * 2): ${result}\n`;
+                let expression = (10 + 5);
+                let statement = "let x = 10;";
+                output += `Expression result: ${expression}\nStatement example: ${statement}\n`;
+                alert(output);
+            }
+            function toggleVisibility(id) {
+                document.getElementById(id).classList.toggle("hidden");
+            }
+        </script>
+        <div class="exercise-container">
+            <h5>Control Flow (Conditional Statements and Loops)</h5>
+            <button onclick="runExample2()">Run Example</button>
+            <button onclick="toggleVisibility('code2')">Show/Hide Code</button>
+            <pre id="code2" class="hidden">function runExample2() { let output = ""; let num = Math.floor(Math.random() * 10); if (num < 3) { output += "Number is small (0-2)\n"; } else if (num < 7) { output += "Number is medium (3-6)\n"; } else { output += "Number is large (7-9)\n"; } output += "For Loop: "; for (let i = 0; i < 5; i++) { output += i + " "; } output += "\n"; let count = 0; output += "While Loop: "; while (count < 3) { output += count + " "; count++; } output += "\n"; alert(output); }</pre>
+        </div>
+        <script>
+            function runExample2() {
+                let output = "";
+                let num = Math.floor(Math.random() * 10);
+                if (num < 3) { output += "Number is small (0-2)\n"; } else if (num < 7) { output += "Number is medium (3-6)\n"; } else { output += "Number is large (7-9)\n"; }
+                output += "For Loop: "; for (let i = 0; i < 5; i++) { output += i + " "; }
+                output += "\n"; let count = 0; output += "While Loop: "; while (count < 3) { output += count + " "; count++; }
+                output += "\n"; alert(output);
+            }
+        </script>
+        <div class="exercise-container">
+            <h5>Functions and Scope</h5>
+            <button onclick="runExample3()">Run Example</button>
+            <button onclick="toggleVisibility('code3')">Show/Hide Code</button>
+            <pre id="code3" class="hidden">function greet(name) { return "Hello, " + name + "!"; } const add = function(a, b) { return a + b; }; const multiply = (a, b) => a * b; let globalVar = "I'm a global variable"; function scopeExample() { let localVar = "I'm a local variable"; if (true) { let blockVar = "I'm a block-scoped variable"; console.log(blockVar); } function innerFunction() { console.log(globalVar); } innerFunction(); return localVar; } function runExample3() { let output = ""; output += greet("John") + "\n"; output += "Addition (5 + 3): " + add(5, 3) + "\n"; output += "Multiplication (4 * 2): " + multiply(4, 2) + "\n"; output += scopeExample() + "\n"; alert(output); }</pre>
+        </div>
+        <script>
+            function greet(name) { return "Hello, " + name + "!"; }
+            const add = function(a, b) { return a + b; };
+            const multiply = (a, b) => a * b;
+            let globalVar = "I'm a global variable";
+            function scopeExample() {
+                let localVar = "I'm a local variable";
+                if (true) { let blockVar = "I'm a block-scoped variable"; console.log(blockVar); }
+                function innerFunction() { console.log(globalVar); }
+                innerFunction(); return localVar;
+            }
+            function runExample3() {
+                let output = ""; output += greet("John") + "\n"; output += "Addition (5 + 3): " + add(5, 3) + "\n"; output += "Multiplication (4 * 2): " + multiply(4, 2) + "\n"; output += scopeExample() + "\n"; alert(output);
+            }
+        </script>
+        <div class="exercise-container">
+            <h5>Objects and Arrays</h5>
+            <button onclick="runExample4()">Run Example</button>
+            <button onclick="toggleVisibility('code4')">Show/Hide Code</button>
+            <pre id="code4" class="hidden">const person = { name: "John", age: 25, greet: function() { return `Hello, my name is ${this.name} and I am ${this.age} years old.`; } }; let numbers = [1, 2, 3, 4, 5]; numbers.push(6); numbers.pop(); let squaredNumbers = numbers.map(num => num * num); let evenNumbers = numbers.filter(num => num % 2 === 0); let forEachOutput = ""; numbers.forEach(num => { forEachOutput += num + " "; }); function runExample4() { let output = ""; output += person.greet() + "\n"; output += "Original Numbers: " + numbers.join(", ") + "\n"; output += "Squared Numbers: " + squaredNumbers.join(", ") + "\n"; output += "Even Numbers: " + evenNumbers.join(", ") + "\n"; output += "forEach Output: " + forEachOutput + "\n"; alert(output); }</pre>
+        </div>
+        <script>
+            const person = { name: "John", age: 25, greet: function() { return `Hello, my name is ${this.name} and I am ${this.age} years old.`; } };
+            let numbers = [1, 2, 3, 4, 5]; numbers.push(6); numbers.pop();
+            let squaredNumbers = numbers.map(num => num * num);
+            let evenNumbers = numbers.filter(num => num % 2 === 0);
+            let forEachOutput = ""; numbers.forEach(num => { forEachOutput += num + " "; });
+            function runExample4() {
+                let output = ""; output += person.greet() + "\n"; output += "Original Numbers: " + numbers.join(", ") + "\n"; output += "Squared Numbers: " + squaredNumbers.join(", ") + "\n"; output += "Even Numbers: " + evenNumbers.join(", ") + "\n"; output += "forEach Output: " + forEachOutput + "\n"; alert(output);
+            }
+        </script>
+        <div class="exercise-container">
+            <h5>DOM Manipulation and Events</h5>
+            <button onclick="toggleVisibility('code5')">Show/Hide Code</button>
+            <button id="changeText">Change Text</button>
+            <button id="toggleClass">Toggle Class</button>
+            <input type="text" id="textInput" placeholder="Type something...">
+            <p id="output">Original Text</p>
+            <pre id="code5" class="hidden">const outputElement = document.getElementById("output"); const textInput = document.getElementById("textInput"); const changeTextButton = document.getElementById("changeText"); const toggleClassButton = document.getElementById("toggleClass"); changeTextButton.addEventListener("click", function() { outputElement.innerHTML = "Text has been changed!"; outputElement.style.color = "blue"; }); toggleClassButton.addEventListener("click", function() { outputElement.classList.toggle("highlight"); }); textInput.addEventListener("keydown", function(event) { outputElement.innerHTML = "You typed: " + event.key; }); outputElement.addEventListener("mouseover", function() { outputElement.style.backgroundColor = "lightgray"; }); outputElement.addEventListener("mouseout", function() { outputElement.style.backgroundColor = ""; });</pre>
+        </div>
+        <script>
+            const outputElement = document.getElementById("output");
+            const textInput = document.getElementById("textInput");
+            const changeTextButton = document.getElementById("changeText");
+            const toggleClassButton = document.getElementById("toggleClass");
+            changeTextButton.addEventListener("click", function() {
+                outputElement.innerHTML = "Text has been changed!";
+                outputElement.style.color = "blue";
+            });
+            toggleClassButton.addEventListener("click", function() {
+                outputElement.classList.toggle("highlight");
+            });
+            textInput.addEventListener("keydown", function(event) {
+                outputElement.innerHTML = "You typed: " + event.key;
+            });
+            outputElement.addEventListener("mouseover", function() {
+                outputElement.style.backgroundColor = "lightgray";
+            });
+            outputElement.addEventListener("mouseout", function() {
+                outputElement.style.backgroundColor = "";
+            });
+        </script>
+        <div class="exercise-container">
+            <h5>Asynchronous JavaScript (Callbacks, Promises, and Async/Await)</h5>
+            <button onclick="runCallbacks()">Run Callbacks</button>
+            <button onclick="runPromises()">Run Promises</button>
+            <button onclick="runAsyncAwait()">Run Async/Await</button>
+            <button onclick="toggleVisibility('output5')">Show/Hide</button>
+            <button onclick="toggleVisibility('code6')">Show/Hide Code</button>
+            <p id="output5">Output will appear here</p>
+            <pre id="code6" class="hidden">function fetchDataCallback(callback) { setTimeout(() => { callback("Data fetched using Callback!"); }, 1000); } function runCallbacks() { fetchDataCallback((data) => { document.getElementById("output5").innerText = data; }); } function fetchDataPromise() { return new Promise((resolve) => { setTimeout(() => { resolve("Data fetched using Promise!"); }, 1000); }); } function runPromises() { fetchDataPromise().then((data) => { document.getElementById("output5").innerText = data; }); } async function fetchDataAsync() { return new Promise((resolve) => { setTimeout(() => { resolve("Data fetched using Async/Await!"); }, 1000); }); } async function runAsyncAwait() { let data = await fetchDataAsync(); document.getElementById("output5").innerText = data; }</pre>
+        </div>
+        <script>
+            function fetchDataCallback(callback) {
+                setTimeout(() => {
+                    callback("Data fetched using Callback!");
+                }, 1000);
+            }
+            function runCallbacks() {
+                fetchDataCallback((data) => {
+                    document.getElementById("output5").innerText = data;
+                });
+            }
+            function fetchDataPromise() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve("Data fetched using Promise!");
+                    }, 1000);
+                });
+            }
+            function runPromises() {
+                fetchDataPromise().then((data) => {
+                    document.getElementById("output5").innerText = data;
+                });
+            }
+            async function fetchDataAsync() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve("Data fetched using Async/Await!");
+                    }, 1000);
+                });
+            }
+            async function runAsyncAwait() {
+                let data = await fetchDataAsync();
+                document.getElementById("output5").innerText = data;
+            }
+        </script>
+        <div class="exercise-container">
+            <h5>Buttons</h5>
+            <button onclick="prompt('HELLO WORLD')">PROMPT</button>
+            <button id="alertButton1">ALERT BUTTON</button>
+            <button onclick="displayPrompt()">INPUT BUTTON</button>
+            <button onclick="calculator()">Calculator</button>
+            <script>
+                document.getElementById("alertButton1").addEventListener("click", function() {
+                    alert("This is an alert!");
+                });
+                function displayPrompt() {
+                    let name = prompt('ENTER YOUR NAME HERE');
+                    if (name) {
+                        alert('Hello, ' + name + '!');
+                    }
+                }
+                function calculator() {
+                    let num1, num2, operator, result;
+                    while (true) {
+                        num1 = prompt('Enter the first number:');
+                        if (num1 === null) return;
+                        if (!isNaN(num1) && num1.trim() !== '') {
+                            num1 = parseFloat(num1);
+                            break;
+                        } else {
+                            alert('Enter a number only.');
+                        }
+                    }
+                    while (true) {
+                        operator = prompt('Choose an operator (+, -, *, /):');
+                        if (operator === null) return;
+                        if (['+', '-', '*', '/'].includes(operator)) {
+                            break;
+                        } else {
+                            alert('Please choose the correct operator.');
+                        }
+                    }
+                    while (true) {
+                        num2 = prompt('Enter the second number:');
+                        if (num2 === null) return;
+                        if (!isNaN(num2) && num2.trim() !== '') {
+                            num2 = parseFloat(num2);
+                            break;
+                        } else {
+                            alert('Enter a number only.');
+                        }
+                    }
+                    if (operator === '+') {
+                        result = num1 + num2;
+                    } else if (operator === '-') {
+                        result = num1 - num2;
+                    } else if (operator === '*') {
+                        result = num1 * num2;
+                    } else if (operator === '/') {
+                        if (num2 === 0) {
+                            alert('Error: Cannot divide by zero.');
+                            return;
+                        }
+                        result = num1 / num2;
+                    }
+                    alert('Result: ' + result);
+                }
+            </script>
+        </div>
+        <div class="exercise-container">
+            <h5>Traffic Light</h5>
+            <button id="toggleButton" onclick="toggleTrafficLight()">Show Traffic Light</button>
+            <div id="trafficLight" class="traffic-light" style="display: none;">
+                <div id="greenLight" class="light green off"></div>
+                <div id="yellowLight" class="light yellow off"></div>
+                <div id="redLight" class="light red off"></div>
+            </div>
+            <p>Time elapsed: <span id="timer">0</span> seconds</p>
+            <script>
+                let isTrafficLightVisible = false;
+                let intervalId = null;
+                let timer = null;
+                let seconds = 0;
+                let timeouts = [];
+                let redLightTimer = null;
+                let startDelay = null;
+
+                function toggleTrafficLight() {
+                    const trafficLight = document.getElementById('trafficLight');
+                    const button = document.getElementById('toggleButton');
+
+                    if (isTrafficLightVisible) {
+                        trafficLight.style.display = 'none';
+                        button.textContent = 'Show Traffic Light';
+                        clearInterval(intervalId);
+                        clearInterval(timer);
+                        clearAllTimeouts();
+                        clearTimeout(redLightTimer);
+                        clearTimeout(startDelay);
+                        resetLights();
+                    } else {
+                        trafficLight.style.display = 'block';
+                        button.textContent = 'Hide Traffic Light';
+                        startDelay = setTimeout(() => { startTrafficLightSequence(); }, 1000);
+                        resetTimer();
+                    }
+                    isTrafficLightVisible = !isTrafficLightVisible;
+                }
+
+                function resetLights() {
+                    document.getElementById('greenLight').classList.add('off');
+                    document.getElementById('yellowLight').classList.add('off');
+                    document.getElementById('redLight').classList.add('off');
+                }
+
+                function startTrafficLightSequence() {
+                    clearInterval(intervalId);
+                    clearAllTimeouts();
+                    clearTimeout(redLightTimer);
+
+                    function runLights() {
+                        resetLights();
+                        timeouts.push(setTimeout(() => { document.getElementById('greenLight').classList.remove('off'); }, 0));
+                        timeouts.push(setTimeout(() => { document.getElementById('greenLight').classList.add('off'); document.getElementById('yellowLight').classList.remove('off'); }, 3000));
+                        timeouts.push(setTimeout(() => { document.getElementById('yellowLight').classList.add('off'); document.getElementById('redLight').classList.remove('off'); redLightTimer = setTimeout(() => { forceGreenLight(); }, 3000); }, 6000));
+                    }
+
+                    intervalId = setInterval(runLights, 9000);
+                    runLights();
+                }
+
+                function resetTimer() {
+                    clearInterval(timer);
+                    seconds = 0;
+                    document.getElementById("timer").textContent = seconds;
+
+                    timer = setInterval(() => {
+                        seconds++;
+                        document.getElementById("timer").textContent = seconds;
+                        if (seconds >= 3) { seconds = 0; }
+                    }, 1000);
+                }
+
+                function clearAllTimeouts() {
+                    timeouts.forEach(clearTimeout);
+                    timeouts = [];
+                }
+
+                function forceGreenLight() {
+                    clearAllTimeouts();
+                    clearTimeout(redLightTimer);
+                    document.getElementById('redLight').classList.add('off');
+                    document.getElementById('greenLight').classList.remove('off');
+                    startTrafficLightSequence();
+            </script>
+            </div>
+             <div class="exercise-container">
+                <h5>FizzBuzz Output</h5>
+                <button onclick="runFizzBuzz()">Run FizzBuzz</button>
+                <button onclick="toggleOutput()">Show/Hide</button>
+                <ul id="outputfizz"></ul>
+            
+                <script>
+                    function runFizzBuzz() {
+                        let output = document.getElementById("outputfizz");
+                        output.innerHTML = ""; // Clear previous results
+            
+                        for (let i = 1; i <= 100; i++) {
+                            let result = "";
+                            if (i % 3 === 0 && i % 5 === 0) {
+                                result = "FizzBuzz";
+                            } else if (i % 3 === 0) {
+                                result = "Fizz";
+                            } else if (i % 5 === 0) {
+                                result = "Buzz";
+                            } else {
+                                result = i;
+                            }
+                            
+                            let li = document.createElement("li");
+                            li.textContent = result;
+                            output.appendChild(li);
+                        }
+            
+                        output.style.display = "block"; // Show results when FizzBuzz runs
+                    }
+            
+                    function toggleOutput() {
+                        let output = document.getElementById("outputfizz");
+                        if (output.style.display === "none" || output.innerHTML === "") {
+                            output.style.display = "block";
+                        } else {
+                            output.style.display = "none";
+                        }
+                    }
+                </script>
+            </div>
+        
+        
+        <hr>
+        <h3 id="projects">PROJECTS</h3>
+        <hr>
+        <footer>
+            <p>&copy; Zije Dave A. Duragos. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

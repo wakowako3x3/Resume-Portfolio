@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squish the Cockroach</title>
+</head>
+<body>
+    <div id="game">
+        <div id="score">Score: 0</div>
+        <div id="time">Time: 30</div>
+        <div id="target">🍑</div>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        #game {
+            position: relative;
+            width: 300px; /* Smaller width */
+            height: 300px; /* Smaller height */
+        }
+
+        #score, #time {
+            font-size: 14px; /* Smaller font size */
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        #target {
+            position: absolute;
+            font-size: 20px; /* Smaller target size */
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+        }
+    </style>
+
+    <script>
+        function moveTarget() {
+            const target = document.getElementById("target");
+            const x = Math.random() * (300 - 50); // Adjusted to smaller width
+            const y = Math.random() * (300 - 50); // Adjusted to smaller height
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
+        }
+
+        moveTarget(); // Move cockroach when page loads
+
+        let score = 0;
+
+        document.getElementById("target").addEventListener("click", function() {
+            score += 1; // Increase score
+            document.getElementById("score").textContent = `Score: ${score}`;
+
+            // Squish effect
+            this.style.transform = "scale(0.8) rotate(45deg)";
+
+            // Play squish sound
+            const squishSound = new Audio("audio/scream.mp3");
+            squishSound.play();
+
+            setTimeout(() => {
+                moveTarget();
+                this.style.transform = "scale(1) rotate(0deg)";
+            }, 150);
+        });
+
+        let timeLeft = 30;
+        const timer1 = setInterval(() => {
+            timeLeft--; // Decrease time
+            document.getElementById("time").textContent = `Time: ${timeLeft}`;
+
+            if (timeLeft <= 0) {
+                clearInterval(timer1); // Stop timer
+                document.getElementById("target").style.display = "none";
+                alert(`Game over! You squished ${score} cockroaches!`);
+            }
+        }, 1000);
+
+        setInterval(moveTarget, 3000);
+    </script>
+</body>
+</html>
